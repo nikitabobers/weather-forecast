@@ -9,23 +9,21 @@ const ui = new UI();
 document.addEventListener("DOMContentLoaded", getApi);
 // Change location
 document.getElementById("w-change-btn").addEventListener("click", e => {
-  const city = document.getElementById("city").value;
-  const country = document.getElementById("country").value;
-  // Change location
-  api.changeLocation(city, country);
-  // Set location LS
-  storage.setLocationData(city, country);
-  getApi();
+    const city = document.getElementById("city").value;
+    const country = document.getElementById("country").value;
+    // Change location
+    api.changeLocation(city, country);
+    // Set location LS
+    storage.setLocationData(city, country);
+    getApi();
 
-  $("#locModal").modal("hide");
+    $("#locModal").modal("hide");
 });
 
 function getApi() {
-  api
-    .getApi()
-    .then(results => {
-      // console.log(results);
-      ui.paint(results);
-    })
-    .catch(err => console.log(err));
+    api.getApi()
+        .then(results => {
+            ui.paint(results);
+        })
+        .catch(err => console.log(err));
 }
